@@ -108,3 +108,21 @@ body{padding-top:158px}.app-shell:has(.home-stack){padding-top:0}
 /* قائمة الجامعات القابلة للبحث */
 .university-picker{position:relative}.university-input-wrap{position:relative}.university-input-wrap input{padding-left:42px}.picker-arrow{position:absolute;left:15px;top:50%;transform:translateY(-52%);color:var(--green);font-size:18px;pointer-events:none;transition:.2s}.university-input-wrap:focus-within .picker-arrow{transform:translateY(-45%) rotate(180deg)}
 .university-options{position:absolute;z-index:80;top:calc(100% + 7px);right:0;left:0;max-height:260px;overflow:auto;padding:7px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 38px rgba(22,22,22,.16);scrollbar-width:thin;scrollbar-color:#b7c9c0 transparent}.university-options[hidden]{display:none}.university-option{display:block;width:100%;border:0;background:#fff;color:var(--ink);text-align:right;padding:11px 12px;border-radius:8px;font-size:13px}.university-option:hover,.university-option:focus{background:#eaf5ef;color:var(--green2);outline:none}.university-empty{padding:18px;text-align:center;color:var(--muted);font-size:13px}
+
+/* NDS form-field pattern, adapted to the GASTAT identity. */
+.nds-form-grid{--nds-field-height:48px;--nds-field-radius:4px;--nds-field-border:#9da4ae;--nds-field-focus:#1b8354;--nds-field-error:#b42318}
+.nds-form-container{display:flex;flex-direction:column;gap:8px;position:relative}
+.nds-form-container>label{margin:0;color:#161616;font-size:15px;line-height:1.5;font-weight:500;cursor:pointer}
+.nds-form-container[data-required]>label:not(.check)::before{content:"* ";color:var(--nds-field-error)}
+.nds-form-container .nds-input{width:100%;min-height:var(--nds-field-height);height:var(--nds-field-height);padding:0 16px;border:1px solid var(--nds-field-border);border-radius:var(--nds-field-radius);background:#fff;color:#161616;font:inherit;outline:0;transition:border-color .16s ease,box-shadow .16s ease,background-color .16s ease}
+.nds-form-container textarea.nds-input{height:auto;min-height:120px;padding-block:12px;resize:vertical;line-height:1.6}
+.nds-form-container select.nds-input{cursor:pointer;padding-inline-end:40px}
+.nds-form-container .nds-input::placeholder{color:#6c737f;opacity:1}
+.nds-form-container .nds-input:hover{border-color:#384250}
+.nds-form-container .nds-input:focus{border-color:var(--nds-field-focus);box-shadow:inset 0 -2px 0 var(--nds-field-focus),0 3px 8px rgba(22,22,22,.12)}
+.nds-form-container .nds-input:focus-visible{outline:2px solid rgba(27,131,84,.2);outline-offset:2px}
+.nds-form-container .hint,.nds-form-container .char-counter{margin-top:0;color:#4d5761;font-size:12px;line-height:1.5}
+.nds-form-container .university-input-wrap .nds-input{border-radius:var(--nds-field-radius)}
+.nds-other-field[hidden]{display:none}.nds-other-field{animation:ndsOtherFieldIn .18s ease-out}@keyframes ndsOtherFieldIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+.nds-form-grid.was-validated .nds-form-container:has(.nds-input:invalid) .nds-input{border-color:var(--nds-field-error)}
+@media(max-width:520px){.nds-form-grid{--nds-field-height:48px}.nds-form-container>label{font-size:14px}.nds-form-container .nds-input{font-size:16px}}
